@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru" class="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<title>Оплата — Дмитрий, сайты с онлайн-записью</title>
+<style>
+  :root { --bg:#0b0d12; --card:#141821; --line:#232a38; --text:#e8ebf2; --mut:#8b93a7; --acc:#3b82f6; }
+  * { box-sizing:border-box; margin:0; padding:0 }
+  body { background:var(--bg); color:var(--text); font:15px/1.55 Inter,system-ui,-apple-system,'Segoe UI',sans-serif; padding:24px 16px 64px }
+  .wrap { max-width:640px; margin:0 auto }
+  h1 { font-size:22px; font-weight:800; letter-spacing:-.02em; margin-bottom:4px }
+  .sub { color:var(--mut); margin-bottom:24px }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:16px }
+  .card h2 { font-size:15px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px }
+  .num { display:inline-grid; place-items:center; width:22px; height:22px; border-radius:50%; background:var(--acc); color:#fff; font-size:12px; font-weight:700 }
+  .sum-row { display:flex; gap:8px; align-items:center; margin-bottom:12px }
+  .sum-row input { flex:1; background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:10px 12px; color:var(--text); font-size:18px; font-weight:700 }
+  .price-quick { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:4px }
+  .price-quick button { cursor:pointer; background:var(--bg); border:1px solid var(--line); color:var(--text); border-radius:999px; padding:6px 12px; font-size:13px }
+  .price-quick button:hover { border-color:var(--acc) }
+  .detail { border-top:1px dashed var(--line); margin-top:14px; padding-top:14px; display:grid; gap:10px }
+  .kv { display:flex; justify-content:space-between; gap:12px; font-size:14px }
+  .kv b { font-weight:700 }
+  .kv .mut { color:var(--mut) }
+  .phone { font-family:'JetBrains Mono',ui-monospace,monospace; font-size:17px; font-weight:600; color:#7dd3fc }
+  .note { color:var(--mut); font-size:13px; margin-top:10px }
+  .btn { display:block; width:100%; text-align:center; background:var(--acc); color:#fff; border:none; border-radius:12px; padding:13px; font-size:15px; font-weight:700; text-decoration:none; margin-top:14px; cursor:pointer }
+  .steps { color:var(--mut); font-size:13px; display:grid; gap:6px; margin-top:8px }
+  .ok { color:#4ade80 }
+  footer { color:var(--mut); font-size:12px; margin-top:24px; text-align:center }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Оплата сайта с онлайн-записью</h1>
+  <p class="sub">Дмитрий · сайты-визитки и запись для салонов, барбершопов, студий</p>
+
+  <div class="card">
+    <h2><span class="num">1</span> Сумма по договорённости</h2>
+    <div class="price-quick">
+      <button onclick="set(2900)">2900 ₽ — старт-оффер</button>
+      <button onclick="set(4900)">4900 ₽ — база</button>
+      <button onclick="set(6900)">6900 ₽ — с доменом</button>
+    </div>
+    <div class="sum-row"><input id="sum" type="number" inputmode="numeric" min="0" step="100" value="4900" oninput="fmt()" /> <span style="color:var(--mut)">₽</span></div>
+    <div class="detail">
+      <div class="kv"><span class="mut">Что входит</span><span>сайт + онлайн-запись + админка, запуск 2 дня</span></div>
+      <div class="kv"><span class="mut">Абонплата</span><span class="ok">нет — платите один раз</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">2</span> Перевод на карту / СБП</h2>
+    <div class="detail">
+      <div class="kv"><span class="mut">Карта</span><b class="phone">ЗАПОЛНИ — номер карты</b></div>
+      <div class="kv"><span class="mut">СБП (по номеру)</span><b class="phone">ЗАПОЛНИ — телефон</b></div>
+      <div class="kv"><span class="mut">Получатель</span><b>Дмитрий [ФАМИЛИЯ ИНИЦИАЛ]</b></div>
+      <div class="kv"><span class="mut">Сумма к переводу</span><b class="phone" id="echo">4900 ₽</b></div>
+    </div>
+    <p class="note">Банк значения не имеет — СБП переводит между любыми банками. В комментарии ничего писать не нужно.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">3</span> Чек самозанятого</h2>
+    <div class="steps">
+      <div>После перевода присылаешь скрин платежа в личку.</div>
+      <div>В ответ получаешь <b>чек из «Мой налог»</b> (самозанятость, НПД 4%) — официальный документ для бухгалтерии, если салон ИП.</div>
+      <div>Наименование услуги: <span style="color:var(--text)">«Разработка сайта-визитки с модулем онлайн-записи»</span>.</div>
+    </div>
+  </div>
+
+  <a class="btn" href="https://t.me/biberbiber11">Написать в Telegram после оплаты</a>
+
+  <footer>Оплата после согласования состава работ. Чек предоставляется каждому клиенту.</footer>
+</div>
+<script>
+function set(v){ document.getElementById('sum').value = v; fmt() }
+function fmt(){ const v = Number(document.getElementById('sum').value || 0); document.getElementById('echo').textContent = v.toLocaleString('ru-RU') + ' ₽' }
+fmt()
+</script>
+</body>
+</html>

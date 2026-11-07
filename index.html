@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ru" class="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<meta name="description" content="Сайт-визитка с онлайн-записью для салона, барбершопа или студии — 4900 ₽ один раз, без абонплаты. Готов за 2 дня." />
+<title>Дмитрий — сайты с онлайн-записью для салонов · 4900 ₽ разово</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg:#0b0d12; --card:#141821; --line:#232a38; --text:#e8ebf2; --mut:#8b93a7; --acc:#3b82f6; }
+  * { box-sizing:border-box; margin:0; padding:0 }
+  html { scroll-behavior:smooth }
+  body { background:var(--bg); color:var(--text); font:16px/1.6 Inter,system-ui,'Segoe UI',sans-serif }
+  .wrap { max-width:980px; margin:0 auto; padding:0 20px }
+  header { position:sticky; top:0; z-index:50; backdrop-filter:blur(12px); background:rgba(11,13,18,.82); border-bottom:1px solid var(--line) }
+  .hrow { display:flex; align-items:center; justify-content:space-between; height:60px }
+  .brand { font-weight:800; letter-spacing:-.02em }
+  .brand span { color:var(--acc) }
+  .nav a { color:var(--mut); text-decoration:none; font-size:14px; margin-left:18px }
+  .nav a:hover { color:var(--text) }
+  .cta { background:var(--acc); color:#fff !important; padding:8px 16px; border-radius:10px; font-weight:700 }
+  h1 { font-size:clamp(28px,5vw,44px); font-weight:800; letter-spacing:-.03em; line-height:1.12; margin:56px 0 14px }
+  .lead { color:var(--mut); font-size:18px; max-width:640px }
+  .price-hero { display:inline-flex; align-items:baseline; gap:10px; margin:22px 0 8px }
+  .price-hero b { font-family:'JetBrains Mono',monospace; font-size:34px }
+  .price-hero s { color:var(--mut) }
+  .badge { display:inline-block; background:rgba(59,130,246,.14); border:1px solid rgba(59,130,246,.4); color:#93c5fd; border-radius:999px; padding:4px 12px; font-size:13px; font-weight:600; margin-bottom:14px }
+  .hstats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:34px 0 }
+  .hstat { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px }
+  .hstat b { display:block; font-size:20px; letter-spacing:-.02em }
+  .hstat span { color:var(--mut); font-size:13px }
+  h2 { font-size:24px; font-weight:800; letter-spacing:-.02em; margin:64px 0 6px }
+  .h2sub { color:var(--mut); margin-bottom:22px }
+  .demos { display:grid; grid-template-columns:repeat(3,1fr); gap:16px }
+  .demo { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden }
+  .demo-head { display:flex; align-items:center; gap:10px; padding:12px 14px }
+  .demo-ic { width:34px; height:34px; border-radius:10px; display:grid; place-items:center; color:#fff; font-size:12px; font-weight:800 }
+  .demo-t { font-weight:700; font-size:14px }
+  .demo-s { color:var(--mut); font-size:12px }
+  .frame { position:relative; height:430px; border-top:1px solid var(--line); background:#fff }
+  .frame iframe { width:100%; height:100%; border:0 }
+  .demo-cta { display:block; text-align:center; padding:10px; color:#93c5fd; text-decoration:none; font-size:13px; border-top:1px solid var(--line) }
+  .demo-cta:hover { background:rgba(59,130,246,.08) }
+  .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:12px }
+  .step { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px }
+  .step b { display:grid; place-items:center; width:26px; height:26px; border-radius:50%; background:var(--acc); color:#fff; font-size:13px; margin-bottom:10px }
+  .step h3 { font-size:15px; margin-bottom:4px }
+  .step p { color:var(--mut); font-size:13px }
+  .plans { display:grid; grid-template-columns:1fr 1fr; gap:16px }
+  .plan { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px }
+  .plan.hot { border-color:var(--acc); box-shadow:0 0 0 1px var(--acc) }
+  .plan h3 { font-size:17px; font-weight:800 }
+  .plan .p { font-family:'JetBrains Mono',monospace; font-size:30px; font-weight:700; margin:10px 0 2px }
+  .plan .ps { color:var(--mut); font-size:13px; margin-bottom:14px }
+  .plan ul { list-style:none; display:grid; gap:8px; font-size:14px }
+  .plan li::before { content:'✓'; color:#4ade80; margin-right:8px; font-weight:700 }
+  .dump { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px; margin-top:16px; font-size:14px; color:var(--mut) }
+  .dump b { color:var(--text) }
+  .faq { display:grid; gap:10px }
+  details { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px }
+  summary { cursor:pointer; font-weight:700; font-size:15px }
+  details p { color:var(--mut); margin-top:8px; font-size:14px }
+  .final { text-align:center; margin:70px 0 30px }
+  .final .btn { display:inline-block; background:var(--acc); color:#fff; text-decoration:none; font-weight:800; font-size:17px; padding:15px 34px; border-radius:14px }
+  footer { border-top:1px solid var(--line); color:var(--mut); font-size:13px; padding:22px 0 40px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px }
+  footer a { color:#93c5fd; text-decoration:none }
+  @media (max-width:860px){ .demos,.hstats{grid-template-columns:1fr} .steps{grid-template-columns:1fr 1fr} .plans{grid-template-columns:1fr} .frame{height:380px} .nav a:not(.cta){display:none} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hrow">
+    <div class="brand">Дмитрий<span>.</span>Запись</div>
+    <nav class="nav">
+      <a href="#demos">Демки</a>
+      <a href="#how">Как работаем</a>
+      <a href="#price">Цены</a>
+      <a class="cta" href="https://t.me/biberbiber11">Написать</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <span class="badge">До 30 ноября — 4900 ₽ вместо 5900 ₽</span>
+  <h1>Сайт-визитка с онлайн-записью для вашего салона</h1>
+  <p class="lead">Клиент сам выбирает услугу, день и время — хоть в два ночи. Заявка прилетает вам. Платите <b>один раз</b>, абонплаты нет — страница ваша навсегда.</p>
+  <div class="price-hero"><b>4 900 ₽</b><s>5 900 ₽</s><span style="color:var(--mut);font-size:14px">разово · готово за 2 дня</span></div>
+
+  <div class="hstats">
+    <div class="hstat"><b>2 дня</b><span>от демки до рабочей записи</span></div>
+    <div class="hstat"><b>0 ₽/мес</b><span>никаких подписок и комиссий</span></div>
+    <div class="hstat"><b>с телефона</b><span>запись открывается как приложение</span></div>
+  </div>
+
+  <h2 id="demos">Живые демки — потыкайте прямо здесь</h2>
+  <p class="h2sub">Это не картинки: запись в демках работает по-настоящему. Каждый клиент получает свою версию с его услугами и ценами.</p>
+  <div class="demos">
+    <div class="demo">
+      <div class="demo-head"><div class="demo-ic" style="background:#2f7cf6">ГЛ</div><div><div class="demo-t">Детейлинг-студия</div><div class="demo-s">«Глянец», Обнинск</div></div></div>
+      <div class="frame"><iframe src="https://biber78788-byte.github.io/demo-glyanec/" title="Демка детейлинга" loading="lazy"></iframe></div>
+      <a class="demo-cta" href="https://biber78788-byte.github.io/demo-glyanec/" target="_blank" rel="noreferrer">Открыть целиком →</a>
+    </div>
+    <div class="demo">
+      <div class="demo-head"><div class="demo-ic" style="background:#d4a24e">БР</div><div><div class="demo-t">Барбершоп</div><div class="demo-s">«Бритва», Подольск</div></div></div>
+      <div class="frame"><iframe src="https://biber78788-byte.github.io/demo-britva/" title="Демка барбершопа" loading="lazy"></iframe></div>
+      <a class="demo-cta" href="https://biber78788-byte.github.io/demo-britva/" target="_blank" rel="noreferrer">Открыть целиком →</a>
+    </div>
+    <div class="demo">
+      <div class="demo-head"><div class="demo-ic" style="background:#8b5cf6">ЧР</div><div><div class="demo-t">Тату-студия</div><div class="demo-s">«Чернила», Рыбинск</div></div></div>
+      <div class="frame"><iframe src="https://biber78788-byte.github.io/demo-chernila/" title="Демка тату" loading="lazy"></iframe></div>
+      <a class="demo-cta" href="https://biber78788-byte.github.io/demo-chernila/" target="_blank" rel="noreferrer">Открыть целиком →</a>
+    </div>
+  </div>
+
+  <h2 id="how">Как это работает</h2>
+  <p class="h2sub">Четыре шага, оплата — только когда увидите свою версию.</p>
+  <div class="steps">
+    <div class="step"><b>1</b><h3>Демка</h3><p>Скидываю демку под вашу сферу — смотрите с телефона за минуту.</p></div>
+    <div class="step"><b>2</b><h3>Наполнение</h3><p>Присылаете услуги, цены, фото — я собираю вашу версию с вашим названием.</p></div>
+    <div class="step"><b>3</b><h3>Запуск</h3><p>Смотрите готовый сайт, говорите «го». Мелкие правки — на месте.</p></div>
+    <div class="step"><b>4</b><h3>Оплата</h3><p>4900 ₽ на карту, чек самозанятого — по запросу. Дальше — только пользуетесь.</p></div>
+  </div>
+
+  <h2 id="price">Цены</h2>
+  <p class="h2sub">Одна оплата. Без подписок, комиссий с клиентов и «премиум-тарифов».</p>
+  <div class="plans">
+    <div class="plan hot">
+      <h3>Сайт + запись</h3>
+      <div class="p">4 900 ₽</div>
+      <div class="ps">до 30 ноября, потом 5 900 ₽ · адрес вида dmitry-web.ru/ваш-салон</div>
+      <ul>
+        <li>Страница: услуги, цены, фото, контакты</li>
+        <li>Онлайн-запись: клиент выбирает день и время</li>
+        <li>Заявки приходят вам в Telegram</li>
+        <li>Ставится на телефон как приложение</li>
+        <li>Админка: цены и услуги меняете сами</li>
+        <li>Правки в течение месяца — бесплатно</li>
+      </ul>
+    </div>
+    <div class="plan">
+      <h3>То же + свой домен</h3>
+      <div class="p">6 900 ₽</div>
+      <div class="ps">до 30 ноября, потом 7 900 ₽</div>
+      <ul>
+        <li>Всё из левого тарифа</li>
+        <li>Домен .ru на ваше имя (nailspb.ru, britva-tver.ru — любые свободные)</li>
+        <li>Свой адрес — легко диктовать клиентам и печатать на визитках</li>
+      </ul>
+    </div>
+  </div>
+  <div class="dump">
+    <b>Почему не YCLIENTS и не конструкторы:</b> подписки от ~3 900 ₽/мес — это 46 800 ₽ в год, каждый год. Здесь — 4 900 ₽ <b>один раз</b>. Один записавшийся клиент окупает всю сумму.
+  </div>
+
+  <h2>Частые вопросы</h2>
+  <div class="faq">
+    <details><summary>Запись куда приходят заявки?</summary><p>Вам в Telegram мгновенным сообщением: имя, телефон, услуга, дата и время. Дублируются в админке сайта.</p></details>
+    <details><summary>Я смогу сам менять цены?</summary><p>Да, админка простая: цены, услуги, фото и блокировка занятых часов — всё меняется вами за пару минут с телефона.</p></details>
+    <details><summary>А если у меня уже есть сайт?</summary><p>Не нужно переделывать всё — добавлю именно кнопку записи к существующей странице. Обсудим по фото вашего сайта.</p></details>
+    <details><summary>Документы?</summary><p>Я самозанятый: чек из «Мой налог» на каждую оплату — подойдёт для бухгалтерии ИП.</p></details>
+    <details><summary>Что если не понравится?</summary><p>Оплата — после того как вы посмотрели свою готовую версию. Не понравилось — расходимся без счёта.</p></details>
+  </div>
+
+  <div class="final">
+    <a class="btn" href="https://t.me/biberbiber11">Написать в Telegram — покажу демку за минуту</a>
+    <p style="color:var(--mut);margin-top:12px;font-size:14px">Отвечаю в течение 15 минут, если не сплю :) · dmitry.kuznetsv@gmail.com</p>
+  </div>
+
+  <footer>
+    <div>Дмитрий — сайты с онлайн-записью · 2026</div>
+    <div><a href="https://t.me/biberbiber11">Telegram @biberbiber11</a></div>
+  </footer>
+</div>
+</body>
+</html>
